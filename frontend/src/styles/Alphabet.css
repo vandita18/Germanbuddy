@@ -1,0 +1,168 @@
+/* =========================
+   ALPHABET PAGE
+========================= */
+
+.alphabet-page {
+  width: 100%;
+  padding: 120px 20px 50px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.alphabet-title {
+  text-align: center;
+
+  font-size: 42px;
+  font-weight: 800;
+
+  margin-bottom: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #f59e0b,
+    #ec4899,
+    #8b5cf6
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   LETTER BUTTONS
+========================= */
+
+.alphabet-tabs {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-bottom: 35px;
+}
+
+.alphabet-tab {
+  width: 55px;
+  height: 55px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+
+  transition: 0.3s ease;
+}
+
+.alphabet-tab:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(
+    135deg,
+    #ec4899,
+    #8b5cf6
+  );
+}
+
+.alphabet-tab.active {
+  background: linear-gradient(
+    135deg,
+    #ec4899,
+    #8b5cf6
+  );
+
+  box-shadow:
+    0 8px 20px rgba(236,72,153,0.4);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.alphabet-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(250px,1fr)
+    );
+
+  gap: 25px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.alphabet-card {
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 25px;
+
+  text-align: center;
+
+  transition: 0.3s ease;
+}
+
+.alphabet-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 30px rgba(236,72,153,0.25);
+}
+
+.alphabet-card h2 {
+  font-size: 52px;
+
+  margin-bottom: 12px;
+
+  color: #f9a8d4;
+}
+
+.alphabet-card p {
+  color: #e5e7eb;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   AUDIO BUTTON
+========================= */
+
+.alphabet-audio-btn {
+  margin-top: 15px;
+
+  width: 100%;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .alphabet-title {
+    font-size: 32px;
+  }
+
+  .alphabet-card h2 {
+    font-size: 42px;
+  }
+}

@@ -1,0 +1,133 @@
+
+/* =========================
+   AI CONTAINER (CENTER LAYOUT FIX)
+========================= */
+
+.ai-container {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center; /* 🔥 ensures center alignment */
+
+  gap: 25px;
+}
+
+/* =========================
+   TITLE (UNCHANGED)
+========================= */
+
+.ai-title {
+ font-size: 42px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: bold;
+
+  background: linear-gradient(to right, #f472b6, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   SEARCH BOX (CENTER FIX ONLY)
+========================= */
+
+.ai-search-box {
+  width: 100%;
+  max-width: 750px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* INPUT */
+
+.ai-search-box input {
+  flex: 1;
+
+  padding: 14px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  outline: none;
+
+  font-size: 16px;
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* BUTTON */
+
+.ai-search-box button {
+  padding: 14px 20px;
+
+  border-radius: 14px;
+  border: none;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+
+  transition: 0.3s ease;
+
+  white-space: nowrap;
+}
+
+.ai-search-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.35);
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.ai-loading {
+  color: #38bdf8;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.ai-error {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.ai-result {
+  width: 100%;
+  max-width: 800px;
+
+  padding: 25px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: #e5e7eb;
+
+  line-height: 1.7;
+}

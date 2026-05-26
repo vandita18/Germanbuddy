@@ -1,0 +1,155 @@
+
+/* =========================
+   AUTH PAGE WRAPPER
+========================= */
+
+.auth-page {
+  min-height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+}
+
+/* =========================
+   AUTH CARD
+========================= */
+
+.auth-card {
+  width: 80%;
+  max-width: 450px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+
+  border-radius: 24px;
+
+  padding: 40px;
+
+  text-align: center;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.auth-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+
+  background: linear-gradient(to right,#f472b6,#8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   TABS CONTAINER
+========================= */
+
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================
+   TAB BUTTONS (INACTIVE)
+========================= */
+
+.auth-tabs button {
+  padding: 10px 18px;
+
+  border-radius: 12px;
+  border: none;
+
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.08);
+  color: #cbd5e1; /* inactive visible color */
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+/* hover effect */
+.auth-tabs button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.12);
+}
+
+/* =========================
+   ACTIVE TAB (FIXED VISIBILITY)
+========================= */
+
+.auth-tabs button.active-tab {
+  background: linear-gradient(135deg,#ec4899,#8b5cf6);
+  color: white;
+
+  box-shadow: 0 8px 20px rgba(236,72,153,0.25);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* INPUTS */
+
+.auth-form input {
+  padding: 14px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+
+  outline: none;
+}
+
+/* ERROR TEXT */
+
+.auth-form p {
+  color: #f87171;
+  font-size: 13px;
+
+  margin-top: -8px;
+  margin-bottom: 5px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.auth-btn {
+  padding: 14px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: linear-gradient(135deg,#ec4899,#8b5cf6);
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139,92,246,0.25);
+}

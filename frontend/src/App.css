@@ -1,0 +1,173 @@
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+
+  background: linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
+  color: white;
+
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* FIXED NAVBAR SPACE */
+  padding-top: 80px;
+}
+
+/* =========================
+   APP WRAPPER
+========================= */
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================
+   PAGE CONTAINER
+========================= */
+
+.page-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  /* clean spacing (no navbar guessing here anymore) */
+  padding: 20px 25px 50px;
+}
+
+/* =========================
+   GLOBAL PAGE TITLE (USED ELSEWHERE ONLY)
+========================= */
+
+.page-title {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: bold;
+
+  background: linear-gradient(to right, #f472b6, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   GLOBAL SEARCH BAR (USED IN VOCAB/GRAMMAR ETC.)
+========================= */
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
+
+.search-bar input,
+.search-bar select {
+  min-width: 220px;
+
+  padding: 14px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  outline: none;
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn-primary {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 24px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+}
+
+button:hover,
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.35);
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+
+  transition: 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(236,72,153,0.25);
+}
+
+/* =========================
+   LOADING TEXT
+========================= */
+
+.loading-text {
+  text-align: center;
+  margin-top: 30px;
+
+  color: #d1d5db;
+  font-size: 18px;
+}
+
+/* =========================
+   SELECT
+========================= */
+
+select {
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  border-radius: 12px;
+  padding: 12px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+select option {
+  background: #1e1b4b;
+  color: white;
+}

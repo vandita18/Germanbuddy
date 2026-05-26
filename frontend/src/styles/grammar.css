@@ -1,0 +1,84 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.grammar-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* =========================
+   SEARCH BAR (FIXED SINGLE LINE)
+========================= */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 10px;
+  flex-wrap: nowrap;   /* 🔥 FORCE SINGLE LINE */
+  margin-bottom: 30px;
+}
+
+.search-bar select {
+  height: 48px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  min-width: 220px;
+  font-size: 15px;
+  background: white;
+  color: black;
+}
+
+.search-bar button {
+  height: 48px;
+  padding: 0 22px;
+  white-space: nowrap;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grammar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 25px;
+  margin-top: 35px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.grammar-card {
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  transition: 0.3s ease;
+}
+
+.grammar-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  .search-bar {
+    flex-wrap: wrap;   /* allow wrap on small screens */
+  }
+
+  .search-bar select,
+  .search-bar button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
