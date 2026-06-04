@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import '../styles/Navbar.css';
+import '../styles/navbar.css';
 
 export default function Navbar() {
 

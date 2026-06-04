@@ -1,0 +1,8 @@
+{
+  "name": "germanbuddy-functions",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^1.3.0"
+  }
+}

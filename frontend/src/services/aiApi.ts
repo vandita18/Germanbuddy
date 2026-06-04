@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/ai";
+const API_URL = "/api/ai";
 
 export const askAI = async (topic: string) => {
   const response = await fetch(`${API_URL}/explain`, {

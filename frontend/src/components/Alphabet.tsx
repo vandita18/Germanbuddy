@@ -61,12 +61,6 @@ export default function Alphabet() {
         item.type === 'letter'
     );
 
-  const specialLetters =
-    letters.filter(
-      (item) =>
-        item.type === 'special'
-    );
-
   // =========================
   // EXTRA LEARNING SOUNDS
   // =========================
