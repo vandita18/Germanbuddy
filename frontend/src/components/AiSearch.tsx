@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import '../styles/AITutor.css';
-
-const API_URL = "http://localhost:5000/api/ai/explain";
+import { askAI } from "../services/aiApi";
 
 const AiSearch: React.FC = () => {
   const [topic, setTopic] = useState<string>("");
@@ -17,24 +16,12 @@ const AiSearch: React.FC = () => {
     setResult("");
 
     try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ topic }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch AI response");
-      }
-
-      const data = await response.json();
+      const data = await askAI(topic);
 
       setResult(data.explanation || "No response received.");
     } catch (err) {
       console.error(err);
-      setError("Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
