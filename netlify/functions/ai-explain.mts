@@ -1,17 +1,39 @@
 import type { Context } from '@netlify/functions'
-import { GoogleGenAI } from '@google/genai'
 
-const ai = new GoogleGenAI({})
+const MODEL = 'gpt-4.1-mini'
 
 export default async (req: Request, _context: Context) => {
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 })
   }
 
-  const { topic } = await req.json()
+  let body: { topic?: unknown }
+
+  try {
+    body = await req.json()
+  } catch {
+    return Response.json({ error: 'Request body must be valid JSON' }, { status: 400 })
+  }
+
+  const topic = typeof body.topic === 'string' ? body.topic.trim() : ''
 
   if (!topic) {
     return Response.json({ error: 'Topic is required' }, { status: 400 })
+  }
+
+  const env = (globalThis as typeof globalThis & {
+    process?: { env?: Record<string, string | undefined> }
+  }).process?.env
+
+  const baseUrl = env?.NETLIFY_AI_GATEWAY_BASE_URL
+  const apiKey = env?.NETLIFY_AI_GATEWAY_KEY
+
+  if (!baseUrl || !apiKey) {
+    console.error('Netlify AI Gateway environment variables are unavailable')
+    return Response.json(
+      { error: 'AI tutor is not available in this environment' },
+      { status: 503 },
+    )
   }
 
   const prompt = `You are a German language tutor.
@@ -29,15 +51,50 @@ Return:
 
 Keep response beginner friendly.`
 
-  const response = await ai.models.generateContent({
-    model: 'gemini-3.5-flash',
-    contents: prompt,
-  })
+  try {
+    const response = await fetch(`${baseUrl}/openai/v1/chat/completions`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    })
 
-  return Response.json({
-    success: true,
-    explanation: response.text,
-  })
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('AI Gateway request failed', response.status, errorText)
+      return Response.json(
+        { error: 'AI tutor could not generate a response' },
+        { status: 502 },
+      )
+    }
+
+    const data = await response.json()
+    const explanation = data?.choices?.[0]?.message?.content
+
+    if (typeof explanation !== 'string' || !explanation.trim()) {
+      console.error('AI Gateway returned an empty explanation')
+      return Response.json(
+        { error: 'AI tutor returned an empty response' },
+        { status: 502 },
+      )
+    }
+
+    return Response.json({
+      success: true,
+      explanation,
+    })
+  } catch (error) {
+    console.error('AI tutor request failed', error)
+    return Response.json(
+      { error: 'AI tutor could not be reached' },
+      { status: 502 },
+    )
+  }
 }
 
 export const config = {

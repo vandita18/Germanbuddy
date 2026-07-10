@@ -10,7 +10,8 @@ export const askAI = async (topic: string) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch AI response");
+    const data = await response.json().catch(() => null);
+    throw new Error(data?.error || "Failed to fetch AI response");
   }
 
   return response.json();
