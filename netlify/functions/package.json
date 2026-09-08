@@ -1,5 +1,9 @@
 {
   "name": "germanbuddy-functions",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@netlify/functions": "^2.8.2"
+  }
 }
